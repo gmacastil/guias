@@ -20,3 +20,14 @@ docker run --name ms-factura-02 \
         --network curso \
         --network elk_elk \
         -d ms-factura:2
+
+# Run docker compose
+
+docker compose up -d
+docker compose -f docker-compose-db.yaml up -d 
+
+# push registry
+
+docker tag ms-factura:3 mauron/ms-factura:3
+docker push mauron/ms-factura:3
+

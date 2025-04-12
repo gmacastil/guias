@@ -15,6 +15,22 @@ services:
       - curso
       - elk_elk
     restart: always
+  
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres-02
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+      - POSTGRES_DB=demo
+    ports:
+      - "5433:5432"
+    networks:
+      - curso
+    restart: always
+
+    # add eLK stack
 
 networks:
   curso:
