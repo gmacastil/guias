@@ -9,11 +9,14 @@ services:
       - DATABASE_PASSWORD=123456
       - SERVER_PORT=8081
       - LOGSTASH_SERVER=logstash:5000
+      - JAVA_OPTS=-Xms200m -Xmx256m
     ports:
-      - "9091:8081"
+      - "8081:8081"
     networks:
       - curso
       - elk_elk
+    #volumes:
+    #  - /cer/keystore.jks:/app/keystore.jks
     restart: always
 
 networks:

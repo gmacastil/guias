@@ -31,3 +31,6 @@ docker compose -f docker-compose-db.yaml up -d
 docker tag ms-factura:3 mauron/ms-factura:3
 docker push mauron/ms-factura:3
 
+# Run k6
+
+k6 run test.js
