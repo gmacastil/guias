@@ -1,0 +1,23 @@
+
+services:
+  ms-factura:
+    image: ms-factura:3
+    container_name: ms-factura-02
+    environment:
+      - DATABASE_URL=jdbc:postgresql://postgres:5432/demo
+      - DATABASE_USERNAME=postgres
+      - DATABASE_PASSWORD=123456
+      - SERVER_PORT=8081
+      - LOGSTASH_SERVER=logstash:5000
+    ports:
+      - "9091:8081"
+    networks:
+      - curso
+      - elk_elk
+    restart: always
+
+networks:
+  curso:
+    external: true
+  elk_elk:
+    external: true

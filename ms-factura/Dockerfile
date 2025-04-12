@@ -1,8 +1,9 @@
 FROM openjdk:21-jdk
 
-COPY target/*.jar app.jar
+WORKDIR /app
+COPY target/*.jar micro.jar
 
 ENV JAVA_OPTS=""
 
-CMD java $JAVA_OPTS -jar /app.jar
+CMD java $JAVA_OPTS -jar /app/micro.jar
 
