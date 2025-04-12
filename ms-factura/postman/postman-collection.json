@@ -1,0 +1,143 @@
+{
+  "info": {
+    "_postman_id": "e09a8def-51b5-4c57-a1ae-0d9f8dc3726d",
+    "name": "Facturación API",
+    "description": "Colección para gestionar facturas a través de la API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Health Check",
+      "request": {
+        "method": "GET",
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": ["{{baseUrl}}"],
+          "path": [""]
+        },
+        "description": "Verifica que el servicio está funcionando correctamente"
+      },
+      "response": []
+    },
+    {
+      "name": "Facturas",
+      "item": [
+        {
+          "name": "Obtener todas las facturas",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/facturas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "facturas"]
+            },
+            "description": "Obtiene la lista de todas las facturas disponibles"
+          },
+          "response": []
+        },
+        {
+          "name": "Crear factura",
+          "request": {
+            "method": "POST",
+            "url": {
+              "raw": "{{baseUrl}}/api/facturas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "facturas"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"numero\": \"F001-0001\",\n  \"fechaEmision\": \"2025-04-05\",\n  \"total\": 100.50,\n  \"clienteId\": 1,\n  \"descripcion\": \"Venta de productos\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Crea una nueva factura en el sistema"
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener factura por ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/facturas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "facturas", "1"]
+            },
+            "description": "Obtiene una factura específica según su ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Actualizar factura",
+          "request": {
+            "method": "PUT",
+            "url": {
+              "raw": "{{baseUrl}}/api/facturas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "facturas", "1"]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"id\": 1,\n  \"numero\": \"F001-0001\",\n  \"fechaEmision\": \"2025-04-05\",\n  \"total\": 120.75,\n  \"clienteId\": 1,\n  \"descripcion\": \"Venta de productos actualizada\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "description": "Actualiza una factura existente según su ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Eliminar factura",
+          "request": {
+            "method": "DELETE",
+            "url": {
+              "raw": "{{baseUrl}}/api/facturas/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "facturas", "1"]
+            },
+            "description": "Elimina una factura existente según su ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Obtener facturas por cliente",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{baseUrl}}/api/facturas/cliente/1",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "facturas", "cliente", "1"]
+            },
+            "description": "Obtiene todas las facturas asociadas a un cliente específico"
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}
