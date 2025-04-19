@@ -1,8 +1,8 @@
 
 services:
-  ms-factura:
-    image: mauron/ms-factura:3
-    container_name: ms-factura-01
+  ms-cliente:
+    image: mauron/ms-cliente:1
+    container_name: ms-cliente-01
     environment:
       - DATABASE_URL=jdbc:postgresql://postgres:5432/demo
       - DATABASE_USERNAME=postgres
@@ -10,8 +10,9 @@ services:
       - SERVER_PORT=8080
       - LOGSTASH_SERVER=logstash:5000
       - JAVA_OPTS=-Xms200m -Xmx256m
+      - FACTURA_SERVICE_URL=http://ms-factura-01:8080
     ports:
-      - "9091:8080"
+      - "9002:8080"
     networks:
       - curso
       - elk_elk
