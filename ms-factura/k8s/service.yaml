@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: ms-factura
+spec:
+  selector:
+    app: ms-factura
+  ports:
+  - port: 9090
+    targetPort: 8080
+  type: ClusterIP

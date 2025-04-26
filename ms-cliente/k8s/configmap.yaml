@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ms-config
+data:
+  DATABASE_URL: "jdbc:postgresql://192.168.1.29:5432/demo"
+  DATABASE_USERNAME: "postgres"
+  SERVER_PORT: "8080"
+  LOGSTASH_SERVER: "logstash:5000"
+  JAVA_OPTS: "-Xms200m -Xmx256m"

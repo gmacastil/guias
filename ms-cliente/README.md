@@ -4,9 +4,9 @@ mvn clean package
 
 # construir imagen
 
-docker build . -f Dockerfile2 -t ms-cliente:1
+docker build . -f Dockerfile2 -t ms-cliente:
 
-docker build . -t ms-cliente:1
+docker build . -t ms-cliente:2
 
 # Run
 
@@ -29,8 +29,8 @@ docker compose -f docker-compose-db.yaml up -d
 
 # push registry
 
-docker tag ms-cliente:1 mauron/ms-cliente:1
-docker push mauron/ms-cliente:1
+docker tag ms-cliente:2 mauron/ms-cliente:2
+docker push mauron/ms-cliente:2
 
 # Run k6
 

@@ -1,0 +1,30 @@
+/* Bootstrap import */
+@import 'bootstrap/dist/css/bootstrap.min.css';
+
+/* Estilos globales */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f8f9fa;
+}
+
+.required-field::after {
+  content: " *";
+  color: red;
+}
+
+.table-responsive {
+  overflow-x: auto;
+}
+
+.btn {
+  margin-right: 0.25rem;
+}
+
+.card {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border: none;
+}
+
+.card-header {
+  background-color: #f8f9fa;
+}

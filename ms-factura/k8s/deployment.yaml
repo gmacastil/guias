@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ms-factura
+  labels:
+    app: ms-factura
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ms-factura
+  template:
+    metadata:
+      labels:
+        app: ms-factura
+    spec:
+      containers:
+      - name: ms-factura
+        image: mauron/ms-factura:3
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: ms-config
+        - secretRef:
+            name: ms-secret
+        resources:
+          requests:
+            memory: "256Mi"
+            cpu: "100m"
+          limits:
+            memory: "512Mi"
+            cpu: "500m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 8080
+          initialDelaySeconds: 60
+          periodSeconds: 30
+
+        

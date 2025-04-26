@@ -1,0 +1,177 @@
+{
+  "info": {
+    "name": "Cliente API Collection",
+    "description": "A collection for managing clients and their invoices",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Clientes",
+      "description": "Operations related to clients",
+      "item": [
+        {
+          "name": "Get All Clients",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes"]
+            },
+            "description": "Retrieve a list of all clients"
+          },
+          "response": []
+        },
+        {
+          "name": "Create Client",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan\",\n  \"apellido\": \"Pérez\",\n  \"documento\": \"12345678\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"juan.perez@example.com\",\n  \"direccion\": \"Av. Principal 123\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes"]
+            },
+            "description": "Create a new client"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Client by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/{{clientId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes", "{{clientId}}"]
+            },
+            "description": "Get a specific client by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Update Client",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json",
+                "type": "text"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"nombre\": \"Juan\",\n  \"apellido\": \"Pérez Modificado\",\n  \"documento\": \"12345678\",\n  \"telefono\": \"1234567890\",\n  \"email\": \"juan.perez.mod@example.com\",\n  \"direccion\": \"Av. Principal 456\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/{{clientId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes", "{{clientId}}"]
+            },
+            "description": "Update an existing client"
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Client",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/{{clientId}}",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes", "{{clientId}}"]
+            },
+            "description": "Delete a client by ID"
+          },
+          "response": []
+        },
+        {
+          "name": "Get Client with Invoices",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/clientes/{{clientId}}/facturas",
+              "host": ["{{baseUrl}}"],
+              "path": ["api", "clientes", "{{clientId}}", "facturas"]
+            },
+            "description": "Get a client along with their associated invoices"
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8082",
+      "type": "string",
+      "description": "The base URL for the API server"
+    },
+    {
+      "key": "clientId",
+      "value": "1",
+      "type": "string",
+      "description": "The ID of the client to use in requests"
+    }
+  ]
+}
