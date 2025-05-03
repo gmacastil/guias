@@ -1,0 +1,7 @@
+services:
+  nginx:
+    image: cliente-factura-app:5
+    container_name: frontend
+    ports:
+      - "9000:80"
+    restart: always

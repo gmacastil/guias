@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cliente-factura-app
+  labels:
+    app: cliente-factura-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: cliente-factura-app
+  template:
+    metadata:
+      labels:
+        app: cliente-factura-app
+    spec:
+      containers:
+      - name: cliente-factura-app
+        image: mauron/cliente-factura-app:3
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            memory: "100Mi"
+            cpu: "100m"
+          limits:
+            memory: "150Mi"
+            cpu: "200m"
+        readinessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 40
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /
+            port: 80
+          initialDelaySeconds: 60
+          periodSeconds: 30
+
+        
