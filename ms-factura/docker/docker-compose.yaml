@@ -15,8 +15,6 @@ services:
     networks:
       - curso
       - elk_elk
-    #volumes:
-    #  - /cer/keystore.jks:/app/keystore.jks
     restart: always
 
 networks:
