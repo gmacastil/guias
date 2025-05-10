@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: cliente-factura-app:5
+    image: cliente-factura-app:10
     container_name: frontend
     ports:
       - "9000:80"

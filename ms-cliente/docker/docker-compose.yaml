@@ -1,7 +1,7 @@
 
 services:
   ms-cliente:
-    image: mauron/ms-cliente:1
+    image: ms-cliente:3
     container_name: ms-cliente-01
     environment:
       - DATABASE_URL=jdbc:postgresql://postgres:5432/demo
